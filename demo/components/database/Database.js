@@ -13,7 +13,7 @@ export const COLOURS = {
 export const Items = [
   {
     id: 1,
-    category: 'product',
+    category: 'Laptop',
     productName: 'Dell 14 Laptop, 5 Series 8GB/ 512GB (35.56cm)',
     productPrice: 41900,
     description:
@@ -30,7 +30,7 @@ export const Items = [
   },
   {
     id: 2,
-    category: 'product',
+    category: 'Speaker',
     productName: 'JBL Flip 5 Wireless Portable Bluetooth Speaker',
     productPrice: 6999,
     description:
@@ -46,7 +46,7 @@ export const Items = [
   },
   {
     id: 3,
-    category: 'accessory',
+    category: 'Handbags',
     productName: 'Mammon Women Handbags Combo',
     productPrice: 1999,
     description:
@@ -63,7 +63,7 @@ export const Items = [
   },
   {
     id: 4,
-    category: 'product',
+    category: 'Mobile',
     productName: 'Apple iPhone 14 (128 GB) - Blue 15.40 cm (6.1-inch)',
     productPrice: 65999,
     description:
@@ -79,7 +79,7 @@ export const Items = [
   },
   {
     id: 5,
-    category: 'product',
+    category: 'Earphones',
     productName: 'OnePlus Nord Buds 2r True Wireless Earbuds with Mic.',
     productPrice: 2199,
     description:
@@ -95,7 +95,7 @@ export const Items = [
   },
   {
     id: 6,
-    category: 'accessory',
+    category: 'TV',
     productName: 'OnePlus Y Series Full HD Android LED TV (Black)',
     productPrice: 21999,
     description:
@@ -111,7 +111,7 @@ export const Items = [
   },
   {
     id: 7,
-    category: 'product',
+    category: 'Watch',
     productName: 'Fire-Boltt Ninja Call Pro Plus 1.83" Smart Watch',
     productPrice: 1799,
     description:
@@ -128,7 +128,7 @@ export const Items = [
   },
   {
     id: 8,
-    category: 'product',
+    category: 'Laptop',
     productName: 'Apple MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm',
     productPrice: 81990,
     description:
@@ -144,7 +144,7 @@ export const Items = [
   },
   {
     id: 9,
-    category: 'product',
+    category: 'Earphones',
     productName: 'OnePlus Bullets Bluetooth Z2 Wireless Earphones',
     productPrice: 1999,
     description:
@@ -161,7 +161,7 @@ export const Items = [
   },
   {
     id: 10,
-    category: 'accessory',
+    category: 'Handbag',
     productName: 'WOMEN MARKS WOMEN HANDBAG',
     productPrice: 399,
     description:
@@ -177,7 +177,7 @@ export const Items = [
   },
   {
     id: 11,
-    category: 'accessory',
+    category: 'Mobile',
     productName: 'Xiaomi Pad 6| Qualcomm Snapdragon 870| 8GB, 256GB',
     productPrice: 28999,
     description:
@@ -193,7 +193,7 @@ export const Items = [
   },
   {
     id: 12,
-    category: 'product',
+    category: 'Shoes',
     productName: 'ASIAN Men Sports Gym Shoes with Eva Sole',
     productPrice: 699,
     description:

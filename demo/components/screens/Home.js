@@ -14,12 +14,27 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Icon, Button } from '@rneui/themed';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Dropdown } from 'react-native-element-dropdown';
+
+const data = [
+  { label: "All categories", value: "All categories" },
+  { label: "Laptop", value: "Laptop" },
+  { label: "TV", value: "TV" },
+  { label: "Handbags", value: "Handbags" },
+  { label: "Mobile", value: "Mobile" },
+  { label: "Shoes", value: "Shoes" },
+  { label: "Earphones", value: "Earphones" },
+  { label: "Speaker", value: "Speaker" },
+  { label: "Watch", value: "Watch" },
+]
 
 const Home = ({ navigation }) => {
   const [products, setProducts] = useState([]);
   const [accessory, setAccessory] = useState([]);
   const [searchProduct, setSearchProduct] = useState("")
   const [cartItemsCount, setCartItemsCount] = useState(0);
+
+  const [category, setCategory] = useState("All categories")
 
   //get called on screen loads
   useEffect(() => {
@@ -37,7 +52,12 @@ const Home = ({ navigation }) => {
     if (itemArray) {
       setCartItemsCount(itemArray.length);
     }
+    else setCartItemsCount(0)
   };
+
+  // products.filter(p => p.category === category)
+
+  // console.log(products.filter(p => p.category === category))
 
   //get data from DB
 
@@ -51,13 +71,6 @@ const Home = ({ navigation }) => {
     setProducts(productList);
     setAccessory(accessoryList);
   };
-
-  const print = async () => {
-    let itemArray = await AsyncStorage.getItem("cartItems");
-    itemArray = JSON.parse(itemArray);
-    console.log(itemArray)
-  }
-  print()
 
   //create an product reusable card
   const ProductCard = ({ data }) => {
@@ -173,11 +186,26 @@ const Home = ({ navigation }) => {
 
         <View style={{ width: "100%", padding: 16, paddingTop: 0 }}>
           <TextInput
-            style={{ borderColor: "black", borderWidth: 2, fontSize: 18, paddingLeft: 15, color: "black", borderRadius: 10 }}
+            style={{ borderColor: "black", borderWidth: 2, fontSize: 16, paddingLeft: 15, color: "black", borderRadius: 10, height: 42 }}
             placeholderTextColor={"black"}
             placeholder='Search'
             value={searchProduct}
             onChangeText={(e) => setSearchProduct(e)}
+          />
+        </View>
+        <View style={{ width: "100%", padding: 16, paddingTop: 0 }}>
+          <Dropdown
+            style={{ borderColor: "black", borderWidth: 2, borderRadius: 10, paddingLeft: 15 }} placeholderStyle={{ color: "black" }}
+            placeholder='Search By Category'
+            itemTextStyle={{ color: "black" }}
+            data={data}
+            labelField="label"
+            valueField="value"
+            value={category}
+            onChange={c => setCategory(c.value)}
+            selectedTextStyle={{ color: "black" }}
+            search
+            iconColor='black'
           />
         </View>
 
@@ -216,9 +244,11 @@ const Home = ({ navigation }) => {
               flexWrap: 'wrap',
               justifyContent: 'space-between',
             }}>
-            {products.filter((p) => p.productName.includes(searchProduct)).map(data => {
-              return <ProductCard data={data} key={data.id} />;
-            })}
+            {products.filter((p) => p.productName.includes(searchProduct))
+              .filter(p => p.category === category || category === "All categories")
+              .map(data => {
+                return <ProductCard data={data} key={data.id} />;
+              })}
           </View>
         </View>
 
